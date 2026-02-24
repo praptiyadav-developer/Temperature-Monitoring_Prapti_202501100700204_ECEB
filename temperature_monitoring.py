@@ -15,8 +15,9 @@ def monitor_temperature():
     if min_temp > max_temp:
         print("Minimum value cannot be greater than maximum value.")
         return
+
     while True:  # Infinite loop
-        temperature = read_temperature()
+        temperature = read_temperature(min_temp, max_temp)
         print("Current temperature:", str(temperature) + "°C")
         
         # Check temperature condition
@@ -27,9 +28,13 @@ def monitor_temperature():
         else:
             print("Temperature is within the normal range.")
         
-    
+        print("---------")
         time.sleep(2)  # Wait for 2 seconds
+
+# Start monitoring
+monitor_temperature()
 
 # Start monitoring
 
 monitor_temperature()
+
